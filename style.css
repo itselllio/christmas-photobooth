@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'Princess Sofia';
+  src: url('./assets/princess-sofia.ttf') format('truetype');
+  font-display: swap;
+}
+:root { font-family: 'Princess Sofia', 'Bradley Hand', cursive; font-size: 17px; color: #302522; background: #fff; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; }
+main { max-width: 1160px; margin: auto; padding: clamp(20px, 4vw, 52px); }
+header { text-align: center; }
+h1 { font: 400 clamp(28px, 4vw, 44px) / 1.2 'Princess Sofia', 'Bradley Hand', cursive; margin: 0; }
+#status { color: #6e5f59; line-height: 1.5; margin: 12px 0; min-height: 1.5em; }
+.table { position: relative; height: clamp(290px, 65svh, 690px); background: white; }
+#paper { display: block; width: 100%; height: 100%; }
+#tracking { position: absolute; width: clamp(110px, 29%, 290px); right: 2%; bottom: 5%; overflow: hidden; border-radius: 10px; background: #e8e1dd; box-shadow: 0 4px 20px #2d1c1725; }
+#tracking video, #landmarks { display: block; width: 100%; transform: scaleX(-1); }
+#landmarks { position: absolute; inset: 0; height: 100%; pointer-events: none; }
+.controls { display: grid; justify-items: center; gap: 15px; padding-top: 12px; border-top: 1px solid #eee7e4; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+button, .upload { font: inherit; color: inherit; background: white; border: 1px solid #dfd2cd; padding: 9px 16px; border-radius: 22px; cursor: pointer; }
+.primary { background: #752633; color: #fff; border-color: #752633; }
+button:disabled { opacity: .42; cursor: default; }
+.upload { position: relative; overflow: hidden; }
+.upload input { position: absolute; inset: 0; opacity: 0; width: 100%; cursor: pointer; }
+.upload:focus-within { outline: 2px solid #752633; }
+.preview { display: flex; gap: 10px; align-items: center; color: #6e5f59; font-size: 14px; }
+.preview input { accent-color: #752633; width: min(185px, 44vw); }
+@media (max-width: 500px) { #tracking { right: 0; bottom: 0; } }
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  opacity: var(--backdrop-opacity, 1);
+  background-image: radial-gradient(ellipse at 47% 41%, #c7735c25, transparent 49%, #1c060b36 100%), url('./assets/backdrop-stars.jpg');
+  background-size: 100% 100%, min(54vw, 460px) auto;
+  border-radius: 8px;
+  pointer-events: none;
+}
+#paper { position: relative; }
+#demo { padding: 5px 12px; }
+
+#star-trigger {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  border: 0;
+  border-radius: 2px;
+  background: transparent;
+  min-width: 28px;
+  min-height: 36px;
+}
+header, .controls {
+  -webkit-text-stroke: .14px #fff;
+}
+.primary { -webkit-text-stroke-color: #752633; }
+#star-trigger span {
+  position: absolute;
+  left: calc(50% + var(--star-offset));
+  top: 44%;
+  transform: translateY(-50%) rotate(-5deg);
+  width: var(--star-label-width);
+  text-align: left;
+  text-wrap: pretty;
+  font: var(--star-font) / 1.15 'Princess Sofia', 'Bradley Hand', cursive;
+  color: #752633;
+  -webkit-text-stroke: .13px #fff;
+}
+#star-trigger:hover span { color: #38121a; }
+#star-trigger:focus-visible { outline: 2px solid #fff0d3; outline-offset: 2px; }

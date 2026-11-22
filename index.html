@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unfold a Photo</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="main.mjs"></script>
+</head>
+<body>
+<main>
+  <header><h1>Unfold a Photo</h1><p id="status" role="status">Make a fist, then slowly open one hand.</p></header>
+  <section class="table" aria-label="Paper unfolding stage">
+    <div class="backdrop" aria-hidden="true"></div>
+    <canvas id="paper" role="img" aria-label="Burgundy paper ball with cream polka dots"></canvas>
+    <button id="star-trigger" type="button" aria-label="Take a photo" hidden><span aria-hidden="true">click the star to take a photo</span></button>
+    <div id="tracking" hidden>
+      <video id="camera" muted playsinline aria-label="Camera preview"></video>
+      <canvas id="landmarks" aria-hidden="true"></canvas>
+    </div>
+  </section>
+  <section class="controls" aria-label="Photo booth controls">
+    <div class="actions">
+      <button id="start" class="primary">Start camera</button>
+      <button id="capture" class="primary" hidden>Take photo</button>
+      <button id="retake" hidden>Retake</button>
+      <button id="save" hidden>Save collage</button>
+      <button id="reset" disabled>Reset</button>
+      <label class="upload">Choose photo<input id="upload" type="file" accept="image/*"></label>
+    </div>
+    <button id="demo" type="button">Play reveal</button>
+    <label class="preview">Manual preview <input id="progress" type="range" min="0" max="100" value="0"></label>
+  </section>
+</main>
+</body>
+</html>
